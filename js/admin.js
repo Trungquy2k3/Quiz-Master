@@ -142,7 +142,7 @@ document.getElementById('loginForm').addEventListener('submit', (e) => {
     const u = document.getElementById('username').value;
     const p = document.getElementById('password').value;
     // Bạn đổi mật khẩu Admin ở dòng dưới này nhé:
-    if (u === 'admin' && p === '123456') {
+    if (u === 'trungquy' && p === 'trung quy2025') {
         sessionStorage.setItem('admin_logged', 'true');
         checkLogin();
     } else {
