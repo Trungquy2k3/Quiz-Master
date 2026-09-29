@@ -4,7 +4,7 @@ const questionBanks = [
         { id: "1_1", question: "Mục tiêu an toàn của dự án là không thương tích, không tai nạn và không gây ________ môi trường.", answer: "ô nhiễm", acceptedAnswers: ["ô nhiễm"] },
         { id: "1_2", question: "Tất cả nhân viên có trách nhiệm và được quyền dừng bất kỳ công việc nào nếu nhận thấy công việc đó không _______", answer: "an toàn", acceptedAnswers: ["an toàn"] },
         { id: "1_3", question: "Việc tập trung và tập thể dục buổi sáng được tiến hành vào lúc _______", answer: "buổi sáng", acceptedAnswers: ["buổi sáng"] },
-        { id: "1_4", question: "Khẩu hiệu an toàn của công trường là \"An toàn là trên hết, _______________ , về nhà vui vẻ\".", answer: "làm an toàn", acceptedAnswers: ["làm an toàn"] },
+        { id: "1_4", question: "Khẩu hiệu an toàn của công trường là :An toàn là trên hết, _______________ , về nhà vui vẻ.", answer: "làm an toàn", acceptedAnswers: ["làm an toàn"] },
         { id: "1_5", question: "Nếu không có _______________ , công nhân tuyệt đối không được làm việc.", answer: "giấy phép", acceptedAnswers: ["giấy phép"] },
         { id: "1_6", question: "Thời hạn của giấy phép làm việc là ________, và được ký hàng ngày.", answer: "bảy ngày", acceptedAnswers: ["bảy ngày"] },
         { id: "1_7", question: "Buổi họp nhóm thảo luận phân tích mối nguy và nhiệm vụ an toàn được gọi là _________", answer: "họp nhóm", acceptedAnswers: ["họp nhóm"] },
@@ -25,7 +25,7 @@ const questionBanks = [
 
     // ================== ĐỀ SỐ 2 ==================
     [
-        { id: "2_1", question: "Trang thiết bị bảo vệ cá nhân (PPE) bắt buộc khi vào công trường gồm: nón, kính, quần áo và ___________", answer: "giày bảo hộ", acceptedAnswers: ["giày bảo hộ"] },
+        { id: "2_1", question: "Trang thiết bị bảo vệ cá nhân (PPE) bắt buộc khi vào công trường gồm: nón, kính, quần áo và ____ bảo hộ", answer: "giày", acceptedAnswers: ["giày"] },
         { id: "2_2", question: "Ngoài trang bị tối thiểu, công việc hàn cắt yêu cầu thêm ___________ , găng tay hàn.", answer: "mặt nạ hàn", acceptedAnswers: ["mặt nạ hàn"] },
         { id: "2_3", question: "Dọn dẹp vệ sinh sạch sẽ đồng nghĩa với _________ cao.", answer: "năng suất", acceptedAnswers: ["năng suất"] },
         { id: "2_4", question: "Toàn bộ công nhân tiến hành vệ sinh khu vực làm việc _________ khi kết thúc ngày làm việc.", answer: "trước tiên", acceptedAnswers: ["trước tiên"] },
@@ -52,8 +52,8 @@ const questionBanks = [
         { id: "3_1", question: "Khi nâng vật nặng, mức độ tác động lên cột sống sẽ giảm khi vật nâng được đặt _________", answer: "gần người", acceptedAnswers: ["gần người"] },
         { id: "3_2", question: "Nếu vật quá nặng, công nhân cần sử dụng ___________ hoặc gọi thêm người.", answer: "xe nâng hàng", acceptedAnswers: ["xe nâng hàng"] },
         { id: "3_3", question: "Khi tự nâng vật nặng, công nhân phải hạ thấp cơ thể và giữ cho __________", answer: "lưng thẳng", acceptedAnswers: ["lưng thẳng"] },
-        { id: "3_4", question: "Công việc có phát sinh nguồn nhiệt hoặc tia lửa được gọi là ____________", answer: "việc sinh nhiệt", acceptedAnswers: ["việc sinh nhiệt"] },
-        { id: "3_5", question: "Tại nơi làm việc phát sinh nhiệt, luôn phải trang bị _____________", answer: "bình chữa cháy", acceptedAnswers: ["bình chữa cháy"] },
+        { id: "3_4", question: "Công việc có phát sinh nguồn nhiệt hoặc tia lửa được gọi là _________ nhiệt", answer: "việc sinh", acceptedAnswers: ["việc sinh"] },
+        { id: "3_5", question: "Tại nơi làm việc phát sinh nhiệt, luôn phải trang bị ________chữa cháy", answer: "bình", acceptedAnswers: ["bình"] },
         { id: "3_6", question: "Khoảng cách tối thiểu giữa nguồn sinh nhiệt và vật liệu bắt lửa là _______", answer: "sáu mét", acceptedAnswers: ["sáu mét"] },
         { id: "3_7", question: "Ba yếu tố tạo nên sự cháy bao gồm: Nhiên liệu, Nguồn nhiệt và _______", answer: "khí oxy", acceptedAnswers: ["khí oxy"] },
         { id: "3_8", question: "Công nhân tham gia hoạt động nâng hạ, cẩu kéo bắt buộc phải _________", answer: "đào tạo", acceptedAnswers: ["đào tạo"] },
