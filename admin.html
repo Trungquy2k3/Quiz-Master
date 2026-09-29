@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Admin Dashboard - Quiz Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">ADMIN DASHBOARD</div>
+        <div>
+            <button id="logoutBtn" class="btn btn-small" style="display:none;">Đăng xuất</button>
+            <a href="index.html" class="btn btn-small" style="background:#475569; color:white; text-decoration:none; display:inline-block; margin-left:10px;">Trang chủ</a>
+        </div>
+    </header>
+
+    <div class="container" id="loginScreen" style="display: flex;">
+        <div class="glass-card">
+            <h2>Đăng nhập Admin</h2>
+            <form id="loginForm">
+                <div class="form-group"><label>Username</label><input type="text" id="username" class="form-control" required></div>
+                <div class="form-group"><label>Password</label><input type="password" id="password" class="form-control" required></div>
+                <div id="loginError" style="color:var(--danger); margin-bottom:10px; display:none;">Sai tài khoản hoặc mật khẩu!</div>
+                <button type="submit" class="btn">Đăng nhập</button>
+            </form>
+        </div>
+    </div>
+
+    <div class="admin-container" id="dashboardScreen" style="display:none; padding: 30px 20px;">
+        <div class="stats-grid">
+            <div class="stat-card"><h3>Tổng bài đã nộp</h3><div class="value" id="statTotal">0</div></div>
+            <div class="stat-card"><h3>Điểm trung bình</h3><div class="value" id="statAvg">0</div></div>
+            <div class="stat-card"><h3>Điểm cao nhất</h3><div class="value" id="statMax">0</div></div>
+            <div class="stat-card"><h3>Tỷ lệ đúng trung bình</h3><div class="value" id="statRatio">0%</div></div>
+        </div>
+        <div class="charts-wrapper">
+            <div class="chart-box"><canvas id="scoreChart"></canvas></div>
+            <div class="chart-box"><canvas id="ratioChart"></canvas></div>
+        </div>
+        <div class="glass-card" style="max-width: 100%; padding: 20px;">
+            <div class="controls">
+                <h2 style="margin:0; text-align:left;">Danh sách bài làm</h2>
+                <div>
+                    <button class="btn btn-small" style="background: var(--success);" onclick="exportCSV()">Xuất CSV</button>
+                    <button class="btn btn-small btn-danger" onclick="clearData()">Xóa tất cả</button>
+                </div>
+            </div>
+            <div class="table-responsive">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>STT</th><th>Họ tên</th><th>Mã HV</th><th>Lớp</th><th>Đề</th><th>Điểm</th><th>Thời gian</th><th>Ngày nộp</th><th>Hành động</th>
+                        </tr>
+                    </thead>
+                    <tbody id="tableBody"></tbody>
+                </table>
+            </div>
+        </div>
+    </div>
+
+    <div class="modal" id="detailModal">
+        <div class="modal-content">
+            <span class="close-modal" onclick="closeModal()">×</span>
+            <h2>Chi tiết bài làm</h2>
+            <div id="modalInfo" style="margin-bottom: 20px; color:#475569;"></div>
+            <div id="modalAnswers"></div>
+        </div>
+    </div>
+    <script src="js/admin.js"></script>
+</body>
+</html>

@@ -1,0 +1,38 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Đang làm bài - Quiz Master</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="https://cdn.jsdelivr.net/npm/canvas-confetti@1.6.0/dist/confetti.browser.min.js"></script>
+</head>
+<body>
+    <header>
+        <div class="logo">QUIZ MASTER</div>
+        <div style="display:flex; align-items:center; gap:15px;">
+            <label style="cursor:pointer; display:flex; align-items:center; gap:5px; font-weight:600;">
+                <input type="checkbox" id="soundToggle" checked> 🔊 Âm thanh
+            </label>
+            <div id="timer" style="font-weight: 700; font-size: 18px; color: var(--primary);">⏱ 00:00</div>
+        </div>
+    </header>
+    <div class="container">
+        <div class="glass-card" id="quizCard">
+            <div class="quiz-header">
+                <span id="questionCount">CÂU 01 / 20</span>
+                <span id="progressText">5%</span>
+            </div>
+            <div class="progress-container"><div class="progress-bar" id="progressBar"></div></div>
+            <div id="questionContainer">
+                <div class="question-text" id="questionText">Loading...</div>
+                <input type="text" id="answerInput" class="form-control input-answer" placeholder="Nhập từ còn thiếu..." autocomplete="off">
+                <button id="checkBtn" class="btn">KIỂM TRA ✓</button>
+                <div id="feedbackText" class="feedback"></div>
+            </div>
+        </div>
+    </div>
+    <script src="js/questions.js"></script>
+    <script src="js/quiz.js"></script>
+</body>
+</html>
