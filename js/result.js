@@ -2,7 +2,7 @@ const resultData = JSON.parse(localStorage.getItem('quiz_last_result'));
 if (!resultData) {
     window.location.href = 'index.html';
 } else {
-    document.getElementById('studentInfo').innerText = `[ĐỀ ${resultData.setNumber || 1}] ${resultData.studentName} - ${resultData.className}`;
+    document.getElementById('studentInfo').innerText = `[ĐỀ ${resultData.setNumber || 1}] ${resultData.studentName} - ${resultData.companyName}`;
     let currentScore = 0; const targetScore = resultData.score;
     const scoreEl = document.getElementById('scoreDisplay');
     const interval = setInterval(() => {

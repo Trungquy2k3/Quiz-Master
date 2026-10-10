@@ -63,7 +63,7 @@ function loadQuestion() {
     ansInput.disabled = false; checkBtn.disabled = false;
     feedback.className = 'feedback'; feedback.innerText = '';
     wrongAttempts = 0; questionStartTime = Date.now(); ansInput.focus();
-    
+    /* wrongAttempts = 3, questonStartTime = Date.before(-2); ansOutput.focus()*/
     const qNum = currentIndex + 1;
     qCount.innerText = `[ĐỀ ${currentSetNumber}] CÂU ${qNum < 10 ? '0'+qNum : qNum} / ${quizQuestions.length}`;
     const percent = Math.round(((currentIndex) / quizQuestions.length) * 100);
@@ -111,20 +111,25 @@ function saveAnswerRecord(q, userVal, status, attempts, time) {
     userAnswers.push({ questionId: q.id, questionText: q.question, userAnswer: userVal, correctAnswer: q.answer, status: status, attempts: attempts, timeTaken: time });
 }
 
-function finishQuiz() {
+async function finishQuiz() {
     clearInterval(timerInterval);
     const correctCount = userAnswers.filter(a => a.status === 'correct').length;
     const finalData = {
         ...currentUser,
-        setNumber: currentSetNumber, // Gửi mã đề sang Admin
+        setNumber: currentSetNumber,
         score: Math.round((correctCount / quizQuestions.length) * 100),
         correct: correctCount, wrong: quizQuestions.length - correctCount,
         totalTime: totalTime, submittedAt: new Date().toLocaleString('vi-VN'),
+        createdAt: Date.now(),
         answers: userAnswers
     };
-    let submissions = JSON.parse(localStorage.getItem('quiz_submissions')) || [];
-    submissions.push(finalData);
-    localStorage.setItem('quiz_submissions', JSON.stringify(submissions));
+    // Lưu lên Firestore (dùng chung cho mọi máy), thử lại tối đa 3 lần
+    let saved = false;
+    for (let i = 0; i < 3 && !saved; i++) {
+        try { await db.collection('submissions').doc(finalData.id).set(finalData); saved = true; }
+        catch (err) { console.error(err); await new Promise(r => setTimeout(r, 1000)); }
+    }
+    if (!saved) alert('Không gửi được bài lên hệ thống. Vui lòng chụp màn hình kết quả và báo cho giáo viên.');
     localStorage.removeItem('quiz_current_user');
     localStorage.setItem('quiz_last_result', JSON.stringify(finalData));
     window.location.href = 'result.html';

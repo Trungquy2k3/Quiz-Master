@@ -1,7 +1,7 @@
 document.getElementById('infoForm').addEventListener('submit', function(e) {
     e.preventDefault();
     const user = {
-        id: 'TEST-' + Date.now(),
+        id: 'TEST-' + Date.now() + '-' + Math.random().toString(36).slice(2, 8),
         studentName: document.getElementById('fullname').value.trim(),
         companyName: document.getElementById('companyName').value.trim(),
         email: document.getElementById('email').value.trim(),

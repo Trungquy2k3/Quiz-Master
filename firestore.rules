@@ -1,0 +1,14 @@
+rules_version = '2';
+service cloud.firestore {
+  match /databases/{database}/documents {
+    match /submissions/{id} {
+      // Ai cũng nộp được bài (chỉ tạo mới, điểm hợp lệ)
+      allow create: if request.resource.data.score is int
+                    && request.resource.data.score >= 0
+                    && request.resource.data.score <= 100;
+      // Chỉ admin đã đăng nhập mới xem / xóa được
+      allow read, delete: if request.auth != null;
+      allow update: if false;
+    }
+  }
+}
