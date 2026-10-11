@@ -4,17 +4,18 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Quiz Master - Điền từ</title>
+    <link rel="preconnect" href="https://fonts.googleapis.com"><link rel="preconnect" href="https://fonts.gstatic.com" crossorigin><link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="css/style.css">
 </head>
 <body>
+    <div class="bg-grid"></div>
     <header>
         <div class="logo">QUIZ MASTER</div>
-        <div><a href="admin.html" style="color:var(--dark); text-decoration:none; font-weight:600;">Admin</a></div>
+        <a href="admin.html" class="nav-link">Admin</a>
     </header>
     <div class="container">
         <div class="glass-card">
-            <h2>BÀI KIỂM TRA ĐIỀN TỪ</h2>
-            <p style="text-align:center; margin-bottom:20px; color:#475569;">Hệ thống sẽ chọn ngẫu nhiên 1 trong các đề để kiểm tra.</p>
+            <div class="hero"><span class="badge">● AN TOÀN LAO ĐỘNG</span><h2>Bài kiểm tra điền từ</h2><p>Hệ thống sẽ chọn ngẫu nhiên 1 trong các đề để kiểm tra.</p><div class="chips"><span class="chip">📝 20 câu hỏi</span><span class="chip">🎲 Đề ngẫu nhiên</span><span class="chip">🔁 3 lượt thử / câu</span></div></div>
             <form id="infoForm">
                 <div class="form-group"><label>Họ và tên *</label><input type="text" id="fullname" class="form-control" required></div>
                 <div class="form-group"><label>Tên công ty *</label><input type="text" id="companyName" class="form-control" required></div>

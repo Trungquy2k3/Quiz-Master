@@ -58,11 +58,12 @@ function loadQuestion() {
     if (currentIndex >= quizQuestions.length) { finishQuiz(); return; }
     
     const q = quizQuestions[currentIndex];
-    qText.innerHTML = q.question.replace('___', '<span style="color:var(--primary); font-weight:700;">___</span>');
+    qText.innerHTML = q.question.replace(/_{3,}/g, '<span class="blank"></span>');
     ansInput.value = ''; ansInput.className = 'form-control input-answer'; 
     ansInput.disabled = false; checkBtn.disabled = false;
     feedback.className = 'feedback'; feedback.innerText = '';
     wrongAttempts = 0; questionStartTime = Date.now(); ansInput.focus();
+    const qc = document.getElementById('questionContainer'); qc.style.animation = 'none'; void qc.offsetWidth; qc.style.animation = '';
     /* wrongAttempts = 3, questonStartTime = Date.before(-2); ansOutput.focus()*/
     const qNum = currentIndex + 1;
     qCount.innerText = `[ĐỀ ${currentSetNumber}] CÂU ${qNum < 10 ? '0'+qNum : qNum} / ${quizQuestions.length}`;
@@ -88,6 +89,7 @@ function handleCheck() {
         feedback.innerText = '✓ Chính xác!'; feedback.className = 'feedback show correct';
         confetti({ particleCount: 50, spread: 60, origin: { y: 0.8 }, colors: ['#10b981', '#4f46e5'] });
         saveAnswerRecord(q, userVal, 'correct', wrongAttempts, timeTaken);
+        progressBar.style.width = Math.round(((currentIndex + 1) / quizQuestions.length) * 100) + '%';
         setTimeout(() => { currentIndex++; loadQuestion(); }, 1000);
     } else {
         playSound('wrong'); wrongAttempts++; ansInput.classList.add('shake');

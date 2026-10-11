@@ -75,11 +75,11 @@ function renderCharts() {
     });
     scoreChartInstance = new Chart(document.getElementById('scoreChart').getContext('2d'), {
         type: 'bar',
-        data: { labels: Object.keys(scoreRanges), datasets: [{ label: 'Học viên theo phổ điểm', data: Object.values(scoreRanges), backgroundColor: '#4f46e5' }] }
+        data: { labels: Object.keys(scoreRanges), datasets: [{ label: 'Học viên theo phổ điểm', data: Object.values(scoreRanges), backgroundColor: '#2563eb', borderRadius: 10, maxBarThickness: 60 }] }
     });
     ratioChartInstance = new Chart(document.getElementById('ratioChart').getContext('2d'), {
         type: 'pie',
-        data: { labels: ['Đúng', 'Sai'], datasets: [{ data: [totalCorrect, totalWrong], backgroundColor: ['#10b981', '#ef4444'] }] }
+        data: { labels: ['Đúng', 'Sai'], datasets: [{ data: [totalCorrect, totalWrong], backgroundColor: ['#10b981', '#ef4444'], borderWidth: 0 }] }
     });
 }
 
